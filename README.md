@@ -11,4 +11,5 @@ Steps needed to run the analysis
  3. Put the content of the folder "UCI HAR Dataset" in a subfolder called data, in the same directory of the run_analysis.R script
  4. Open R or RStudio and set the correct working directory with the command setwd("C:\Users\YourUserName\Documents\R\getting-and-cleaning-data\")
  5. Open the run_analysis.R script and execute all the instructions inside
- 6. The tidy data set created in step 5 of the course project assignment will be created is export_data_mean.txt, and will be created into the working directory
+ 
+The tidy data set created in step 5 of the course project assignment is export_data_mean.txt, and will be created into the working directory
