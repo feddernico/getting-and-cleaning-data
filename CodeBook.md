@@ -23,11 +23,11 @@ The run_analysis.R script does the following:
 The `export_data_mean` is the tidy data set created following the 5 steps of the course project assignment.
 
 It is composed by 180 records and 68 variables. The following is a complete list of that variables with the corrisponding description:
-----------------------------  -----------------------------  ---------------------
-Variable Name                 Description                    Format/Units
-----------------------------  -----------------------------  ---------------------
-activity                      The activity name 		     Character    
-subject                       The subject of the experiment  Number/Integer [1:30]
+----------------------------	-----------------------------	---------------------
+Variable Name					Description						Format/Units
+----------------------------	-----------------------------	---------------------
+activity						The activity name				Character    
+subject							The subject of the experiment	Number/Integer [1:30]
 tBodyAcc-mean-X          
 tBodyAcc-mean-Y           
 tBodyAcc-mean-Z           
