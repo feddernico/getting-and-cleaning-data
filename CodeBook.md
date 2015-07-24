@@ -31,8 +31,8 @@ The first part of the script is dedicated to data loading. Firstly the script ge
 Then it takes the data sets containing the train and test labels - y_train.txt and y_test.txt files - and merges them togheter into a single data set called labels.
 Finally it takes the data sets containing the train and test subjects - subject_train.txt and subject_test.txt files - to create a single data set that is the mergine of the former two.
 
-2. Extracting measurements on the mean and standard deviation for each measurement
-----------------------------------------------------------------------------------
+2. Extracting measurements on the mean and standard deviation 
+-------------------------------------------------------------
 
 This second part of the script is focused on getting only the variables that contains the mean and standard deviation of each measurement. 
 To accomplish this task, the script firstly gets the name of each measurement from a text file - features.txt file - and it loads them into a data set called feature_names.
@@ -59,8 +59,8 @@ Then I create the data set - export_data - that is the column bind between three
  2. Activity labels data
  3. The data frame with only the measurements on the mean and standard deviation on each measurements
 
-5. Creating a second, independent data set with the AVG of each variable for each activity and each subject
------------------------------------------------------------------------------------------------------------
+5. Creating an independent aggregated data set
+----------------------------------------------
 
 The fifth and final step involves the creation of a new data set - called export_data_mean - that is an aggregation of the former one.
 Using in fact the aggregate function, the scripts creates a new version of the data set with the average of each variable for each activity and each subject.
