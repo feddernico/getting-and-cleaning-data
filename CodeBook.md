@@ -18,44 +18,80 @@ The run_analysis.R script does the following:
  4. Appropriately labels the data set with descriptive variable names. 
  5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-Each different step is marked by a comment in the R script. The tidy data set created in step 5, called `export_data_mean`, is also written as a text file into the working directory.
+## The export_data_mean data set
 
+The `export_data_mean` is the tidy data set created following the 5 steps of the course project assignment.
 
-
-## 1. Merging the training and test data sets
-
-The first part of the script is dedicated to data loading. Firstly the script gets the train and test data - rispectively `X_train.txt` and `X_test.txt` files - and merges the two data set into a single one, called `data`.
-Then it takes the data sets containing the train and test labels - `y_train.txt` and `y_test.txt` files - and merges them togheter into a single data set called `labels`.
-Finally it takes the data sets containing the train and test subjects - `subject_train.txt` and `subject_test.txt` files - to create a single data set that is the merging of the former two.
-
-## 2. Extracting measurements on the mean and standard deviation 
-
-This second part of the script is focused on getting only the variables that contains the mean and standard deviation of each measurement. 
-To accomplish this task, the script firstly gets the name of each measurement from a text file - `features.txt` file - and it loads them into a data set called `feature_names`.
-It changes then the variable names of the former data set, using the more familiar names of `id_feat` - to identify each feature - and `feat_name` - that contains the name of each feature.
-Then the script identifies only the variables that contains the substring "mean()" and "std()" in their names. To do so, I've used the grep with a regular expression, that searches the right pattern inside the `feat_name` variable.
-The resulting variable matches are stored into a vector called matches, then the data variable names are modified to be more readable.
-Finally is created a dataset with only the measurement on the mean and standard deviation for each mesurement, the resulting data set is called `data_mean_std`.
-
-## 3. Naming the acvities in the data set
-
-The third part of the script creates descritpive activity names to be placed into the data set.
-To accomplish this task the script firstly gets the activity labels from `activity_labels.txt` file, and stores it as a data frame called `activity_labels`. 
-Then renames the variable inside the former data set as `id_activity` and `activity_name`. 
-After that it format the `activity_name` variable, removing the underscorse and transforming the string in lowercase.
-Then it changes the labels id column with the activity name. Finally it renames the variable into the `labels` data set to `activity`.
-
-## 4. Appropriately labeling the data set 
-
-In this fourth step I only need to rename the variable name into the `subjects` data set, because I've already renamed the others needed.
-Then I create the data set - called `export_data` - that is the column bind between three data sets: 
- 1. Subjects data
- 2. Activity labels data
- 3. The data frame with only the measurements on the mean and standard deviation on each measurements
-
-## 5. Creating an independent aggregated data set
-
-The fifth and final step involves the creation of a new data set - called `export_data_mean` - that is an aggregation of the former one.
-Using the `aggregate()` function, the scripts creates a new version of the data set with the average of each variable for each activity and each subject.
-Then it renames the first and second variables of the former data set to activity and subject.
-Finally it stores the data set as a text file - called `export_data_mean.txt` - into the working directory.  
+It is composed by 180 records and 68 variables. The following is a complete list of that variables with the corrisponding description:
+----------------------------  -----------------------------  ---------------------
+Variable Name                 Description                    Format/Units
+----------------------------  -----------------------------  ---------------------
+activity                      The activity name 		     Character    
+subject                       The subject of the experiment  Number/Integer [1:30]
+tBodyAcc-mean-X          
+tBodyAcc-mean-Y           
+tBodyAcc-mean-Z           
+tBodyAcc-std-X           
+tBodyAcc-std-Y            
+tBodyAcc-std-Z            
+tGravityAcc-mean-X       
+tGravityAcc-mean-Y        
+tGravityAcc-mean-Z        
+tGravityAcc-std-X        
+tGravityAcc-std-Y         
+tGravityAcc-std-Z         
+tBodyAccJerk-mean-X      
+tBodyAccJerk-mean-Y      
+tBodyAccJerk-mean-Z       
+tBodyAccJerk-std-X       
+tBodyAccJerk-std-Y        
+tBodyAccJerk-std-Z        
+tBodyGyro-mean-X         
+tBodyGyro-mean-Y          
+tBodyGyro-mean-Z          
+tBodyGyro-std-X          
+tBodyGyro-std-Y           
+tBodyGyro-std-Z           
+tBodyGyroJerk-mean-X     
+tBodyGyroJerk-mean-Y      
+tBodyGyroJerk-mean-Z      
+tBodyGyroJerk-std-X      
+tBodyGyroJerk-std-Y       
+tBodyGyroJerk-std-Z       
+tBodyAccMag-mean         
+tBodyAccMag-std           
+tGravityAccMag-mean       
+tGravityAccMag-std       
+tBodyAccJerkMag-mean      
+tBodyAccJerkMag-std       
+tBodyGyroMag-mean        
+tBodyGyroMag-std          
+tBodyGyroJerkMag-mean     
+tBodyGyroJerkMag-std     
+fBodyAcc-mean-X           
+fBodyAcc-mean-Y           
+fBodyAcc-mean-Z          
+fBodyAcc-std-X            
+fBodyAcc-std-Y            
+fBodyAcc-std-Z           
+fBodyAccJerk-mean-X       
+fBodyAccJerk-mean-Y       
+fBodyAccJerk-mean-Z      
+fBodyAccJerk-std-X        
+fBodyAccJerk-std-Y        
+fBodyAccJerk-std-Z       
+fBodyGyro-mean-X          
+fBodyGyro-mean-Y          
+fBodyGyro-mean-Z         
+fBodyGyro-std-X           
+fBodyGyro-std-Y           
+fBodyGyro-std-Z          
+fBodyAccMag-mean        
+fBodyAccMag-std           
+fBodyBodyAccJerkMag-mean 
+fBodyBodyAccJerkMag-std   
+fBodyBodyGyroMag-mean     
+fBodyBodyGyroMag-std     
+fBodyBodyGyroJerkMag-mean 
+fBodyBodyGyroJerkMag-std 
+----------------------------  -----------------------------  ---------------------
