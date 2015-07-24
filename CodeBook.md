@@ -1,5 +1,4 @@
-Code Book
-=========
+# Code Book
 
 The original data set was the result of the research "Human Activity Recognition Using Smartphones". 
 A detailed description of the work made can be found here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
@@ -10,8 +9,7 @@ The zip file contains various data sets, but only a few was used to perform the 
 
 It also contains a complete data sets and variable description, useful to deeply understand all the files contained into the zip file.
 
-Performed Analysis
-------------------
+## Performed Analysis
 
 The run_analysis.R script does the following:
  1. Merges the training and the test sets to create one data set.
@@ -24,15 +22,13 @@ Each different step is marked by a comment in the R script. The tidy data set cr
 
 
 
-1. Merging the training and test data sets
-------------------------------------------
+## 1. Merging the training and test data sets
 
 The first part of the script is dedicated to data loading. Firstly the script gets the train and test data - rispectively X_train.txt and X_test.txt files - and merges the two data set into a single one, called data.
 Then it takes the data sets containing the train and test labels - y_train.txt and y_test.txt files - and merges them togheter into a single data set called labels.
 Finally it takes the data sets containing the train and test subjects - subject_train.txt and subject_test.txt files - to create a single data set that is the mergine of the former two.
 
-2. Extracting measurements on the mean and standard deviation 
--------------------------------------------------------------
+## 2. Extracting measurements on the mean and standard deviation 
 
 This second part of the script is focused on getting only the variables that contains the mean and standard deviation of each measurement. 
 To accomplish this task, the script firstly gets the name of each measurement from a text file - features.txt file - and it loads them into a data set called feature_names.
@@ -41,8 +37,7 @@ Then the script identifies only the variables that contains the substring "mean(
 The resulting variable matches are stored into a vector called matches, then the data variable names are modified to be more readable.
 Finally is created a dataset with only the measurement on the mean and standard deviation for each mesurement, the resulting data set is called data_mean_std.
 
-3. Naming the acvities in the data set
---------------------------------------
+## 3. Naming the acvities in the data set
 
 The third part of the script creates descritpive activity names to be placed into the data set.
 To accomplish this task the script firstly gets the activity labels from activity_labels.txt file, and stores it as a data frame called activity_labels. 
@@ -50,8 +45,7 @@ Then renames the variable inside the former data set as id_activity and activity
 After that it format the activity_name variable, removing the underscorse and transforming the string in lowercase.
 Then it changes the labels id column with the activity name. Finally it renames the variable into the labels data set into activity.
 
-4. Appropriately labeling the data set 
---------------------------------------
+## 4. Appropriately labeling the data set 
 
 In this fourth step I only need to rename the variable name into the subjects data set, because I've already renamed the others needed.
 Then I create the data set - export_data - that is the column bind between three data sets: 
@@ -59,8 +53,7 @@ Then I create the data set - export_data - that is the column bind between three
  2. Activity labels data
  3. The data frame with only the measurements on the mean and standard deviation on each measurements
 
-5. Creating an independent aggregated data set
-----------------------------------------------
+## 5. Creating an independent aggregated data set
 
 The fifth and final step involves the creation of a new data set - called export_data_mean - that is an aggregation of the former one.
 Using in fact the aggregate function, the scripts creates a new version of the data set with the average of each variable for each activity and each subject.
