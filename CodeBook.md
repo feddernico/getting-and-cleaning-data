@@ -31,8 +31,8 @@ The first part of the script is dedicated to data loading. Firstly the script ge
 Then it takes the data sets containing the train and test labels - y_train.txt and y_test.txt files - and merges them togheter into a single data set called labels.
 Finally it takes the data sets containing the train and test subjects - subject_train.txt and subject_test.txt files - to create a single data set that is the mergine of the former two.
 
-2. Extracting only the measurements on the mean and standard deviation for each measurement
--------------------------------------------------------------------------------------------
+2. Extracting measurements on the mean and standard deviation for each measurement
+----------------------------------------------------------------------------------
 
 This second part of the script is focused on getting only the variables that contains the mean and standard deviation of each measurement. 
 To accomplish this task, the script firstly gets the name of each measurement from a text file - features.txt file - and it loads them into a data set called feature_names.
@@ -41,8 +41,8 @@ Then the script identifies only the variables that contains the substring "mean(
 The resulting variable matches are stored into a vector called matches, then the data variable names are modified to be more readable.
 Finally is created a dataset with only the measurement on the mean and standard deviation for each mesurement, the resulting data set is called data_mean_std.
 
-3. Using descriptive activity names to name the acvities in the data set
-------------------------------------------------------------------------
+3. Naming the acvities in the data set
+--------------------------------------
 
 The third part of the script creates descritpive activity names to be placed into the data set.
 To accomplish this task the script firstly gets the activity labels from activity_labels.txt file, and stores it as a data frame called activity_labels. 
@@ -50,8 +50,8 @@ Then renames the variable inside the former data set as id_activity and activity
 After that it format the activity_name variable, removing the underscorse and transforming the string in lowercase.
 Then it changes the labels id column with the activity name. Finally it renames the variable into the labels data set into activity.
 
-4. Appropriately labeling the data set with descriptive variable names
-----------------------------------------------------------------------
+4. Appropriately labeling the data set 
+--------------------------------------
 
 In this fourth step I only need to rename the variable name into the subjects data set, because I've already renamed the others needed.
 Then I create the data set - export_data - that is the column bind between three data sets: 
@@ -59,8 +59,8 @@ Then I create the data set - export_data - that is the column bind between three
  2. Activity labels data
  3. The data frame with only the measurements on the mean and standard deviation on each measurements
 
-5. From the data set in step 4, creating a second, independent data set with the AVG of each variable for each activity and each subject
-----------------------------------------------------------------------------------------------------------------------------------------
+5. Creating a second, independent data set with the AVG of each variable for each activity and each subject
+-----------------------------------------------------------------------------------------------------------
 
 The fifth and final step involves the creation of a new data set - called export_data_mean - that is an aggregation of the former one.
 Using in fact the aggregate function, the scripts creates a new version of the data set with the average of each variable for each activity and each subject.
