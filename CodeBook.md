@@ -27,9 +27,9 @@ It is composed by 180 records and 68 variables. The following is a complete list
 
 | Variable Name				 | Description				    						| Format	           | Units		          |
 |----------------------------|------------------------------------------------------|----------------------|----------------------|
-|activity					 | The activity name		    						| Character            |					  |
-|subject					 | The subject of the experiment						| Number               | Integer [1:30]		  |
-|tBodyAcc-mean-X             |														|					   |					  |
+|activity					 |The activity name		    							|Character             |					  |
+|subject					 |The subject of the experiment							|Number                |Integer [1:30]		  |
+|tBodyAcc-mean-X             |Time domain body acceleration mean on the X axis		|					   |					  |
 |tBodyAcc-mean-Y             |														|					   |					  |
 |tBodyAcc-mean-Z             |														|					   |					  |
 |tBodyAcc-std-X              |														|					   |					  |
